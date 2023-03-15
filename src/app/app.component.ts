@@ -9,7 +9,7 @@ import { Aiera } from 'aiera-sdk';
 export class AppComponent {
   ngOnInit() {
     const eventList = new Aiera.Module(
-      'https://public.aiera.com/aiera-sdk/0.0.29/modules/EventListByTicker/index.html',
+      'https://public.aiera.com/aiera-sdk/0.0.35/modules/EventList/index.html',
       'example_iframe'
     );
     eventList.load().then(() => {
@@ -17,14 +17,9 @@ export class AppComponent {
     });
     eventList.on('authenticated', () => {
       eventList.configure({
+        hideSettings: true,
         options: {
-          ticker: 'meta',
-          darkMode: false,
-          showTitleInfo: true,
-          showRecordingDetails: true,
-          showPriceReaction: true,
-          showAudioPlayer: true,
-          showSearch: true,
+          //ticker: 'meta',
           eventListFilters: [
             { name: 'transcripts', visible: true, defaultValue: true },
             { name: 'earningsOnly', visible: true, defaultValue: true },
@@ -39,8 +34,11 @@ export class AppComponent {
         },
       });
     });
-    eventList.on('event-selected', (x) => {
-      console.log({ x });
+    eventList.on('event-audio', ({ action, origin }) => {
+      console.log(`${action}: - ${origin}`);
+    });
+    eventList.on('instrument-selected', (x) => {
+      console.log(x);
     });
   }
 }
