@@ -9,7 +9,7 @@ import { Aiera } from 'aiera-sdk';
 export class AppComponent {
   ngOnInit() {
     const eventList = new Aiera.Module(
-      'https://public.aiera.com/aiera-sdk/0.0.37/modules/EventList/index.html',
+      'https://public.aiera.com/aiera-sdk/0.0.41/modules/EventList/index.html',
       'example_iframe'
     );
     eventList.load().then(() => {
@@ -24,6 +24,8 @@ export class AppComponent {
             { name: 'transcripts', visible: true, defaultValue: true },
             { name: 'earningsOnly', visible: true, defaultValue: true },
           ],
+          showPartials: true,
+          showSentiment: true,
         },
         overrides: {
           //   style: `
