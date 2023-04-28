@@ -31,6 +31,10 @@
     flex-direction: column;
     align-items: center;
   }
+  .frames {
+    display: flex;
+    align-items: center;
+  }
 
   #example_iframe {
     margin-top: 20px;
@@ -50,7 +54,11 @@
     <p>Angular Example app is running!</p>
   </div>
 
-  <iframe height="575" width="375" id="example_iframe"></iframe>
+  <div class="frames">
+    <iframe height="575" width="375" id="example_iframe1"></iframe>
+    <iframe height="575" width="375" id="example_iframe2"></iframe>
+    <iframe height="575" width="375" id="example_iframe3"></iframe>
+  </div>
 
   <svg
     id="clouds"
